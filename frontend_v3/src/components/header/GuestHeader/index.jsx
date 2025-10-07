@@ -2,40 +2,55 @@ import React, { useState } from "react";
 import { Layout, Menu, Drawer, Avatar, Dropdown, Space, Grid } from "antd";
 import { MenuOutlined, CarOutlined, UserOutlined, LogoutOutlined } from "@ant-design/icons";
 import { NavLink } from "react-router-dom";
-import "./style.scss"; 
+import "./style.scss";
 
 const { Header } = Layout;
 const { useBreakpoint } = Grid;
 
-const AppHeader = ({ isAuth, user, onLogout }) => {
+const GuestHeader = ({ isAuth, user, onLogout }) => {
   const [open, setOpen] = useState(false);
   const screens = useBreakpoint();
 
   const navItems = [
-    { 
-      key: "home", 
-      label: <NavLink to="/">Home</NavLink> },
-    { 
-      key: "cars", 
-      label: <NavLink to="/cars">Stock Cars</NavLink> },
-    { 
-      key: "owners", 
-      label: <NavLink to="/owners">Our Terms</NavLink> },
-    { 
-      key: "about", 
-      label: <NavLink to="/about">About Us</NavLink> },
+    {
+      key: "home",
+      label: <NavLink to="/">Home</NavLink>
+    },
+    {
+      key: "cars",
+      label: <NavLink to="/cars">Stock Cars</NavLink>
+    },
+    {
+      key: "owners",
+      label: <NavLink to="/owners">Our Terms</NavLink>
+    },
+    {
+      key: "about",
+      label: <NavLink to="/about">About Us</NavLink>
+    },
+    {
+      key: "admin",
+      label: <NavLink to="/admin">Admin</NavLink>
+    },
+    {
+      key: "owner",
+      label: <NavLink to="/owner/dashboard">Owner</NavLink>
+    },
   ];
 
   const userMenu = {
     items: [
-      { 
-        key: "profile", 
-        label: <NavLink to="/profile">Trang cá nhân</NavLink>, icon: <UserOutlined /> },
-      { 
-        type: "divider" },
-      { 
-        key: "logout", 
-        label: "Đăng xuất", icon: <LogoutOutlined />, onClick: onLogout },
+      {
+        key: "profile",
+        label: <NavLink to="/profile">Trang cá nhân</NavLink>, icon: <UserOutlined />
+      },
+      {
+        type: "divider"
+      },
+      {
+        key: "logout",
+        label: "Đăng xuất", icon: <LogoutOutlined />, onClick: onLogout
+      },
     ],
   };
 
@@ -106,4 +121,4 @@ const AppHeader = ({ isAuth, user, onLogout }) => {
   );
 };
 
-export default AppHeader;
+export default GuestHeader;

@@ -21,8 +21,8 @@ const GuestHeader = ({ isAuth, user, onLogout }) => {
       label: <NavLink to="/cars">Stock Cars</NavLink>
     },
     {
-      key: "owners",
-      label: <NavLink to="/owners">Our Terms</NavLink>
+      key: "terms",
+      label: <NavLink to="/terms">Our Terms</NavLink>
     },
     {
       key: "about",

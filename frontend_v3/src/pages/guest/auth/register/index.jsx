@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { unwrapResult } from "@reduxjs/toolkit";
-import { register } from "../../../../hook/userSlice";
+import { register } from "../../../../features/userSlice";
 //import PropTypes from 'prop-types';
 import { message } from "antd";
 import RegisterForm from "./RegisterForm";

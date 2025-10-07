@@ -1,13 +1,18 @@
 // src/App.jsx
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+// guest pages
 import GuestPage from "./pages/guest";
-import OwnerPage from "./pages/co-owner";
 import RegisterPage from "./pages/guest/auth/register";
 import LoginPage from "./pages/guest/auth/login";
 
-// 🆕 import thêm layout & dashboard
-import DashboardLayout from "./components/layouts";
+// owner pages
 import DashboardOwner from "./pages/co-owner";
+//import MyVehicles from "./pages/co-owner/MyVehicles";
+//import Settings from "./pages/co-owner/Settings";
+
+// layout
+import DashboardLayout from "./components/layouts";
 
 const router = createBrowserRouter([
   {
@@ -23,13 +28,21 @@ const router = createBrowserRouter([
     element: <LoginPage />,
   },
 
+  // ✅ Tất cả route /owner đều dùng chung DashboardLayout
   {
-    path: "/owner/dashboard",
-    element: (
-      <DashboardLayout>
-        <DashboardOwner />
-      </DashboardLayout>
-    ),
+    path: "/owner",
+    element: <DashboardLayout />, // layout duy nhất
+    children: [
+      { 
+        path: "dashboard", 
+        element: <DashboardOwner /> },
+      /*{ 
+        path: "my-vehicles", 
+        element: <MyVehicles /> },
+      { 
+        path: "settings", 
+        element: <Settings /> },*/
+    ],
   },
 ]);
 

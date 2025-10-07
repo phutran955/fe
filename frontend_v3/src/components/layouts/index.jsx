@@ -1,12 +1,13 @@
 import React from "react";
 import { Layout } from "antd";
-import { CarOutlined } from "@ant-design/icons"; 
-import OwnerSidebar from "../sidebar"; 
-import HeaderBar from "../header/DashboardHeader"; 
+import { CarOutlined } from "@ant-design/icons";
+import { Outlet } from "react-router-dom"; 
+import OwnerSidebar from "../sidebar";
+import HeaderBar from "../header/DashboardHeader";
 
 const { Sider, Content } = Layout;
 
-const DashboardLayout = ({ children }) => {
+const DashboardLayout = () => {
   return (
     <Layout style={{ minHeight: "100vh" }}>
       {/* Sidebar */}
@@ -20,7 +21,7 @@ const DashboardLayout = ({ children }) => {
             fontWeight: "bold",
           }}
         >
-           <CarOutlined />
+          <CarOutlined />
         </div>
         <OwnerSidebar />
       </Sider>
@@ -29,7 +30,8 @@ const DashboardLayout = ({ children }) => {
       <Layout>
         <HeaderBar />
         <Content style={{ margin: "24px", background: "#fff", padding: "24px" }}>
-          {children}
+          {/* 👇 Tự động render các route con /owner/... */}
+          <Outlet />
         </Content>
       </Layout>
     </Layout>

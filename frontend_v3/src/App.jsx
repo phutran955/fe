@@ -12,7 +12,7 @@ import DashboardOwner from "./pages/co-owner";
 //import Settings from "./pages/co-owner/Settings";
 
 // layout
-import DashboardLayout from "./components/layouts";
+import DashboardLayout from "./components/layouts/Dashboard";
 
 const router = createBrowserRouter([
   {
